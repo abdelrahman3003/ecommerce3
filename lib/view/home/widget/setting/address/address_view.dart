@@ -11,7 +11,7 @@ class AddressView extends StatelessWidget {
     var controller = Get.put(AddressControllerImp());
     return Scaffold(
       appBar: AppBar(
-        title: const Text("address"),
+        title: const Text("adddress"),
       ),
       body: Container(
         child: Column(
