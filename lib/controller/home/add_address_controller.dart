@@ -7,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 abstract class AddAddressController extends GetxController {
   getCurrentPosition();
+  addMarker(LatLng lating);
 }
 
 class AddAddressControllerImp extends AddAddressController {
@@ -14,7 +15,7 @@ class AddAddressControllerImp extends AddAddressController {
   Position? position;
   CameraPosition? kGooglePlex;
   StatusRequest statusRequest = StatusRequest.loading;
-
+  List<Marker> markers = [];
   @override
   void onInit() {
     completerController = Completer<GoogleMapController>();
@@ -30,6 +31,13 @@ class AddAddressControllerImp extends AddAddressController {
       zoom: 14.4746,
     );
     statusRequest = StatusRequest.success;
+    update();
+  }
+
+  @override
+  addMarker(LatLng lating) {
+    markers.clear();
+    markers.add(Marker(markerId: MarkerId('1'), position: lating));
     update();
   }
 }
