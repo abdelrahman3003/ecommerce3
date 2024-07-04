@@ -32,4 +32,7 @@ const String deleteOrderNameLink = "$serverNameLink/order/delete.php";
 const String viewOrderDetailsNameLink =
     "$serverNameLink/order/orderDetails.php";
 const String orderRatingNameLink = "$serverNameLink/order/rating.php";
+
 const String getNotifcationsNameLink = "$serverNameLink/notification/view.php";
+//address
+const String addAdressNameLismk = "$serverNameLink/address/add.php";

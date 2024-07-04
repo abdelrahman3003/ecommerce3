@@ -52,9 +52,12 @@ class AddAddressControllerImp extends AddAddressController {
 
   @override
   goToAddresDetails() {
+    if (lat == null || long == null) {
+      return Get.snackbar("warning", "select location");
+    }
     Get.toNamed(kAddressDetailsView, arguments: {
-      'lat': lat.toString(),
-      'long': long.toString(),
+      'lat': lat,
+      'long': long,
     });
     update();
   }

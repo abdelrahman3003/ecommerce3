@@ -11,7 +11,7 @@ class AuthField extends StatelessWidget {
     this.onTap,
     this.validator,
     this.isnumber = false,
-    this.obscureText = false,
+    this.obscureText = false, this.controller,
   });
   final String text;
   final IconData icon;
@@ -20,10 +20,12 @@ class AuthField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool isnumber;
   final bool obscureText;
+   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Stack(clipBehavior: Clip.none, children: [
       TextfieldAuth(
+        controller: controller,
         obscureText: obscureText,
         isnumber: isnumber,
         onsave: onsave,
