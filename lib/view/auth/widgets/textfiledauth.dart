@@ -7,12 +7,13 @@ class TextfieldAuth extends StatelessWidget {
       required this.onsave,
       required this.validator,
       required this.isnumber,
-      required this.obscureText});
+      required this.obscureText, this.controller});
   final String text;
   final void Function(String?) onsave;
   final String? Function(String?)? validator;
   final bool isnumber;
   final bool obscureText;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,6 +34,7 @@ class TextfieldAuth extends StatelessWidget {
                 ],
               ),
               child: TextFormField(
+                controller: controller,
                 obscureText: obscureText,
                 keyboardType:
                     isnumber ? TextInputType.number : TextInputType.name,
