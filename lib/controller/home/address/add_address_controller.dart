@@ -1,13 +1,17 @@
 import 'dart:async';
 
 import 'package:eccommerce4/core/class/statuscode.dart';
+import 'package:eccommerce4/core/constant/routsApp.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/instance_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 abstract class AddAddressController extends GetxController {
   getCurrentPosition();
   addMarker(LatLng lating);
+  goToAddresDetails();
 }
 
 class AddAddressControllerImp extends AddAddressController {
@@ -16,6 +20,8 @@ class AddAddressControllerImp extends AddAddressController {
   CameraPosition? kGooglePlex;
   StatusRequest statusRequest = StatusRequest.loading;
   List<Marker> markers = [];
+  double? lat;
+  double? long;
   @override
   void onInit() {
     completerController = Completer<GoogleMapController>();
@@ -38,6 +44,18 @@ class AddAddressControllerImp extends AddAddressController {
   addMarker(LatLng lating) {
     markers.clear();
     markers.add(Marker(markerId: MarkerId('1'), position: lating));
+    lat = lating.latitude;
+    long = lating.longitude;
+
+    update();
+  }
+
+  @override
+  goToAddresDetails() {
+    Get.toNamed(kAddressDetailsView, arguments: {
+      'lat': lat.toString(),
+      'long': long.toString(),
+    });
     update();
   }
 }

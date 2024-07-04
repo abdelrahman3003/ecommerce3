@@ -8,7 +8,8 @@ import 'package:eccommerce4/view/auth/widgets/signup/success_signup.dart';
 import 'package:eccommerce4/view/favourite/favourite_view.dart';
 import 'package:eccommerce4/view/cart/cart_view.dart';
 import 'package:eccommerce4/view/home/home_page_view.dart';
-import 'package:eccommerce4/view/home/widget/setting/address/add_address.dart';
+import 'package:eccommerce4/view/home/widget/setting/address/add_address_view.dart';
+import 'package:eccommerce4/view/home/widget/setting/address/address_details_view.dart';
 import 'package:eccommerce4/view/home/widget/setting/address/address_view.dart';
 import 'package:eccommerce4/view/home/widget/setting/orders/order_details_view.dart';
 import 'package:eccommerce4/view/home/widget/setting/setting_view.dart';
@@ -43,6 +44,7 @@ const kItemDetailsView = "/ItemsDetailsView";
 const kOrderView = "/OrderView";
 const kAddressView = "/AddressView";
 const kAddAddressView = "/kAddAddressView";
+const kAddressDetailsView = "/kAddressDetailsView";
 const kOrderDetailsView = "/OrderDetailsView";
 
 List<GetPage<dynamic>>? getPages = [
@@ -69,4 +71,5 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: kAddressView, page: () => const AddressView()),
   GetPage(name: kOrderDetailsView, page: () => const OrderdetailsView()),
   GetPage(name: kAddAddressView, page: () => const AddAddressView()),
+  GetPage(name: kAddressDetailsView, page: () => const AddressDetailsView()),
 ];

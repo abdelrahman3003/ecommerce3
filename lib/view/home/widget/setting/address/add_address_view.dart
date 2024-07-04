@@ -1,8 +1,6 @@
 import 'package:eccommerce4/controller/home/address/add_address_controller.dart';
-import 'package:eccommerce4/core/class/data_handilng.dart';
 import 'package:eccommerce4/core/class/data_handling_request.dart';
-import 'package:eccommerce4/core/class/statuscode.dart';
-import 'package:eccommerce4/core/constant/colors.dart';
+
 import 'package:eccommerce4/core/shared/widgets/buttons/onboarding_Button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,7 +44,9 @@ class AddAddressView extends StatelessWidget {
                                   bottom: 5,
                                   child: OnboardingButton(
                                     text: "Complete",
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      controller.goToAddresDetails();
+                                    },
                                   ))
                             ],
                           )
