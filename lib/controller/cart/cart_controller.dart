@@ -90,7 +90,6 @@ class CartControllerImp extends CartController {
       } else {
         List data = response["data"];
         cartmodelLsit.addAll(data.map((e) => CartModel.fromJson(e)));
-        print("=============== ${cartmodelLsit[0].itemdiscountprice}");
         tolalprice = response['countprice']['totalprice'];
         tolalcount = int.parse(response['countprice']['totalcount']);
       }

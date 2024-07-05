@@ -35,4 +35,6 @@ const String orderRatingNameLink = "$serverNameLink/order/rating.php";
 
 const String getNotifcationsNameLink = "$serverNameLink/notification/view.php";
 //address
-const String addAdressNameLismk = "$serverNameLink/address/add.php";
+const String addAdressNameLink = "$serverNameLink/address/add.php";
+const String getAdressNameLink = "$serverNameLink/address/view.php";
+const String deleteAdressNameLink = "$serverNameLink/address/delete.php";

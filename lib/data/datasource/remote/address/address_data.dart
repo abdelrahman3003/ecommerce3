@@ -17,7 +17,21 @@ class AddressData {
       'lat': address.addressLat.toString(),
       'long': address.addressLong.toString(),
     };
-    var response = await crud.postData(addAdressNameLismk, data);
+    var response = await crud.postData(addAdressNameLink, data);
+    return response.fold((l) => l, (r) => r);
+  }
+
+  getAddress() async {
+    var response = await crud.postData(getAdressNameLink, {
+      'userid': appServices.sharedPreferences.getString('id'),
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+
+  deleteAddress(int addressId) async {
+    var response = await crud.postData(deleteAdressNameLink, {
+      'addressid': addressId.toString(),
+    });
     return response.fold((l) => l, (r) => r);
   }
 }
