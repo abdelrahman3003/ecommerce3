@@ -9,8 +9,7 @@ import 'statuscode.dart';
 
 String _basicAuth = 'Basic ' + base64Encode(utf8.encode('temsah13:16797346'));
 
-
-Map<String, String> myheaders = {'Authorization':_basicAuth};
+Map<String, String> myheaders = {'Authorization': _basicAuth};
 
 class Crud {
   Future<Either<StatusRequest, Map>> getData(String url, Map data) async {
@@ -48,6 +47,7 @@ class Crud {
         return left(StatusRequest.offlineFailure);
       }
     } catch (e) {
+      print("================== e= $e");
       return left(StatusRequest.exceptionFailure);
     }
   }

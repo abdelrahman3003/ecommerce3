@@ -45,7 +45,7 @@ class AddressDetailsControllerImp extends AddressDetailsController {
   @override
   addAddress() async {
     address = Address(
-      addressUserid: appServices.sharedPreferences.getString('id')!,
+      addressUserid: int.parse(appServices.sharedPreferences.getString('id')!),
       addressLat: lat,
       addressLong: long,
       addressName: addresNmae,
@@ -63,7 +63,7 @@ class AddressDetailsControllerImp extends AddressDetailsController {
       if (response["status"] == "failure") {
         statusRequest = StatusRequest.failure;
       } else {
-        Get.toNamed(kHomeScreenView);
+        Get.offAllNamed(kHomeScreenView);
         Get.rawSnackbar(
             title: "Successfully",
             messageText: Text(
