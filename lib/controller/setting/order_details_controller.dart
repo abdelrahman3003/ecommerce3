@@ -16,6 +16,7 @@ class OrderDetailsControllerImp extends OrderDetailsController {
   AppServices appServices = Get.find();
   List<OrderDetailsModel> orderDtailsList = [];
   OrderModel? orderModel;
+  int? orderDeleted ;
 
   @override
   getOrderDetails() async {

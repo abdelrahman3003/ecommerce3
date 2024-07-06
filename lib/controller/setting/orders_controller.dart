@@ -10,7 +10,7 @@ import '../../data/model/order_model.dart';
 
 abstract class OrderController extends GetxController {
   viewOrder();
-  deleteOrder(int orderid);
+  deleteOrder(int index);
   refreshOrderpage();
   goToOrederDetails(OrderModel orderModel);
   String printOrderStatus(val);
@@ -19,10 +19,13 @@ abstract class OrderController extends GetxController {
 
 class OrderControllerImp extends OrderController {
   StatusRequest statusRequest = StatusRequest.none;
+  StatusRequest statusRequest2 = StatusRequest.none;
   OrderData orderData = OrderData(Get.find());
   AppServices appServices = Get.find();
   List<OrderModel> orderList = [];
   bool isArchived = false;
+  int? orderDeleted;
+
   @override
   viewOrder() async {
     statusRequest = StatusRequest.loading;
@@ -42,12 +45,13 @@ class OrderControllerImp extends OrderController {
   }
 
   @override
-  deleteOrder(orderid) async {
-    statusRequest = StatusRequest.loading;
+  deleteOrder(index) async {
+    orderDeleted = index;
+    statusRequest2 = StatusRequest.loading;
     update();
-    var response = await orderData.deleteOrder(orderid);
-    statusRequest = handlingApiData(response);
-    if (statusRequest == StatusRequest.success) {
+    var response = await orderData.deleteOrder(orderList[index].ordersId!);
+    statusRequest2 = handlingApiData(response);
+    if (statusRequest2 == StatusRequest.success) {
       if (response["status"] == "failure") {
         Get.rawSnackbar(
             title: "alarm",
@@ -56,7 +60,8 @@ class OrderControllerImp extends OrderController {
               style: Styles.textStyle16.copyWith(color: Colors.white),
             ));
       } else {
-        refreshOrderpage();
+        orderList.removeAt(index);
+        update();
       }
     }
     update();
