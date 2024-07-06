@@ -73,7 +73,7 @@ class CheckoutControllerImp extends CheckoutController {
     update();
     Map data = {
       "userid": appServices.sharedPreferences.getString("id")!,
-      "addressid": address.toString(),
+      "addressid": 47.toString(),
       "orderprice": priceorder.toString(),
       "orderpricedelivery": '10',
       "ordercoupon": ordercoupon.toString(),
@@ -85,8 +85,11 @@ class CheckoutControllerImp extends CheckoutController {
     if (statusRequest == StatusRequest.success) {
       if (response["status"] == "failure") {
         statusRequest = StatusRequest.failure;
+        print("========== 1");
         Get.snackbar("alarm", "there was an error");
       } else {
+        print("========== 2");
+
         Get.offAllNamed(kHomeScreenView);
         Get.snackbar("alarm", "cart is empty");
       }
@@ -102,7 +105,6 @@ class CheckoutControllerImp extends CheckoutController {
     statusRequest = handlingApiData(response);
     if (statusRequest == StatusRequest.success) {
       if (response["status"] == "failure") {
-        print("========== 1");
       } else {
         List data = response["data"];
         orderList.addAll(data.map((e) => OrderModel.fromJson(e)));

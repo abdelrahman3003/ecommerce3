@@ -10,15 +10,23 @@ import 'order_status.dart';
 import 'text_item.dart';
 
 class OrderCard extends GetView<OrderControllerImp> {
-  const OrderCard({super.key, required this.orderModel});
+  const OrderCard({
+    super.key,
+    required this.orderModel,
+    required this.index,
+  });
 
   final OrderModel orderModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        OrderNumber(orderNumber: orderModel.ordersId!),
+        OrderNumber(
+          index: index,
+          ordernumber: orderModel.ordersId!,
+        ),
         TextItem(
             tilte: "Order date",
             subtilte: " ${Jiffy.parse(orderModel.ordersDatetime!).fromNow()}"),

@@ -10,8 +10,13 @@ class OrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OrderControllerImp());
-    return const SafeArea(
-      child: Scaffold(body: OrderViewBody()),
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Orders"),
+            centerTitle: true,
+          ),
+          body: const OrderViewBody()),
     );
   }
 }

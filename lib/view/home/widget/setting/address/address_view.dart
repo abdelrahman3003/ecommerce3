@@ -15,6 +15,7 @@ class AddressView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("address"),
+        centerTitle: true,
       ),
       body: GetBuilder<AddressControllerIMp>(
           builder: (controller) => DataHandlingState(
