@@ -3,8 +3,8 @@ class Address {
   int? addressUserid;
   String? addressCity;
   String? addressStreet;
-  dynamic addressLat;
-  dynamic addressLong;
+  double? addressLat;
+  double? addressLong;
   String? addressName;
 
   Address(
@@ -21,8 +21,8 @@ class Address {
     addressUserid = json['address_userid'];
     addressCity = json['address_city'];
     addressStreet = json['address_street'];
-    addressLat = json['address_lat'];
-    addressLong = json['address_long'];
+    addressLat = json['address_lat'].toDouble();
+    addressLong = json['address_long'].toDouble();
     addressName = json['address_name'];
   }
 

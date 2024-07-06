@@ -26,9 +26,7 @@ class CartViewBody extends GetView<CartControllerImp> {
               child: CartItemsList(cartItemsList: controller.cartmodelLsit)),
           const CouponStateHandling(),
           Subitem(totalprice: "${controller.tolalprice}"),
-          const CartButton(
-            tilte: "Order",
-          )
+          const CartButton(tilte: "Order")
         ],
       ),
     );

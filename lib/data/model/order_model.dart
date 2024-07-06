@@ -14,8 +14,8 @@ class OrderModel {
   int? addressUserid;
   String? addressCity;
   String? addressStreet;
-  int? addressLat;
-  int? addressLong;
+  double? addressLat;
+  double? addressLong;
   String? addressName;
 
   OrderModel(
@@ -54,8 +54,8 @@ class OrderModel {
     addressUserid = json['address_userid'];
     addressCity = json['address_city'];
     addressStreet = json['address_street'];
-    addressLat = json['address_lat'];
-    addressLong = json['address_long'];
+    addressLat = json['address_lat'].toDouble();
+    addressLong = json['address_long'].toDouble();
     addressName = json['address_name'];
   }
 
