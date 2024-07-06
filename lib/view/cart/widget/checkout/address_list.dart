@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'address_card.dart';
-import 'text_title.dart';
 
 class AddressList extends StatelessWidget {
   const AddressList({super.key});
@@ -11,24 +10,23 @@ class AddressList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckoutControllerImp>(
-        builder: (controller) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 12),
-                const TextTitle(text: "Shipping address"),
-                const SizedBox(height: 12),
-                AddessCard(
-                  isActive: controller.addressName == "Home" ? true : false,
-                  address: "Home",
-                  subaddress: "qena , dishna",
-                ),
-                const SizedBox(height: 15),
-                AddessCard(
-                    isActive:
-                        controller.addressName == "Company" ? true : false,
-                    address: "Company",
-                    subaddress: "Cairo , ain shams"),
-              ],
+        builder: (controller) => ListView.builder(
+              shrinkWrap: true,
+              itemCount: controller.addressController!.addressLsit.length,
+              itemBuilder: (context, index) => AddessCard(
+                isActive: controller.addressName ==
+                        controller
+                            .addressController!.addressLsit[index].addressName
+                    ? true
+                    : false,
+                address: controller
+                        .addressController!.addressLsit[index].addressName ??
+                    "",
+                subaddress: controller
+                        .addressController!.addressLsit[index].addressStreet ??
+                    "",
+                index: index,
+              ),
             ));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:eccommerce4/controller/home/address/address_controller.dart';
 import 'package:eccommerce4/core/constant/routsApp.dart';
 import 'package:get/get.dart';
 
@@ -10,18 +11,20 @@ import '../../data/model/order_model.dart';
 abstract class CheckoutController extends GetxController {
   choosePayWay(String val);
   chooseDeliveryType(String val);
-  chooseAddress(String val);
+  chooseAddress(int index);
   checkout();
   viewOrder();
+  initidata();
 }
 
 class CheckoutControllerImp extends CheckoutController {
   StatusRequest statusRequest = StatusRequest.none;
   OrderData orderData = OrderData(Get.find());
   AppServices appServices = Get.find();
+  AddressControllerIMp? addressController;
   String? payWay;
   String? deliveryType;
-  int address = 10;
+  int? addressid;
   String? addressName;
   dynamic priceorder;
   String? ordercoupon;
@@ -29,21 +32,22 @@ class CheckoutControllerImp extends CheckoutController {
   @override
   void onInit() {
     super.onInit();
-    priceorder = Get.arguments['priceorder'];
-    ordercoupon = Get.arguments['couponName'];
-    ordercoupon ?? "null";
+    initidata();
   }
 
   @override
-  chooseAddress(val) {
-    if (val == "Home") {
-      address = appServices.sharedPreferences.getInt("home")!;
-      addressName = "Home";
-    } else if (val == "Company") {
-      address = appServices.sharedPreferences.getInt("company")!;
-      addressName = "Company";
-    }
+  initidata() {
+    addressController = Get.put(AddressControllerIMp());
+    priceorder = Get.arguments['priceorder'];
+    ordercoupon = Get.arguments['couponName'];
+    ordercoupon ?? "null";
+    update();
+  }
 
+  @override
+  chooseAddress(index) {
+    addressName = addressController!.addressLsit[index].addressName;
+    addressid = addressController!.addressLsit[index].addressId;
     update();
   }
 
@@ -73,7 +77,7 @@ class CheckoutControllerImp extends CheckoutController {
     update();
     Map data = {
       "userid": appServices.sharedPreferences.getString("id")!,
-      "addressid": 47.toString(),
+      "addressid": addressid.toString(),
       "orderprice": priceorder.toString(),
       "orderpricedelivery": '10',
       "ordercoupon": ordercoupon.toString(),
@@ -85,11 +89,8 @@ class CheckoutControllerImp extends CheckoutController {
     if (statusRequest == StatusRequest.success) {
       if (response["status"] == "failure") {
         statusRequest = StatusRequest.failure;
-        print("========== 1");
         Get.snackbar("alarm", "there was an error");
       } else {
-        print("========== 2");
-
         Get.offAllNamed(kHomeScreenView);
         Get.snackbar("alarm", "cart is empty");
       }

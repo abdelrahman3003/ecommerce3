@@ -36,6 +36,11 @@ class AddAddressControllerImp extends AddAddressController {
       target: LatLng(position!.latitude, position!.longitude),
       zoom: 14.4746,
     );
+    lat = position!.altitude;
+    long = position!.longitude;
+    markers.add(
+        Marker(markerId: const MarkerId('1'), position: LatLng(lat!, long!)));
+
     statusRequest = StatusRequest.success;
     update();
   }
@@ -43,7 +48,7 @@ class AddAddressControllerImp extends AddAddressController {
   @override
   addMarker(LatLng lating) {
     markers.clear();
-    markers.add(Marker(markerId: MarkerId('1'), position: lating));
+    markers.add(Marker(markerId: const MarkerId('1'), position: lating));
     lat = lating.latitude;
     long = lating.longitude;
 
