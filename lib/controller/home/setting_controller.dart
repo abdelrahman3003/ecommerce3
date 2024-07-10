@@ -12,8 +12,8 @@ class SettingControllerImp extends SettingController {
   @override
   logout() {
     String userid = appServices.sharedPreferences.getString("id")!;
-    FirebaseMessaging.instance.subscribeToTopic("users");
-    FirebaseMessaging.instance.subscribeToTopic("users$userid");
+    FirebaseMessaging.instance.unsubscribeFromTopic('users');
+    FirebaseMessaging.instance.unsubscribeFromTopic("users$userid");
     Get.offAllNamed(kSignin);
     appServices.sharedPreferences.clear();
   }
