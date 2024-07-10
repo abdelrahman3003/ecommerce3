@@ -13,6 +13,7 @@ import 'core/constant/binding.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await inialServices();
+  
   HttpOverrides.global = MyHttpOverrides();
   runApp(const Ecommerce());
 }

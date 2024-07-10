@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -71,10 +68,20 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCxaPqThSyt7kaYUA65V_FterHrY61RDZQ',
-    appId: '1:896284499229:ios:a117d0aca00c9317f855f4',
+    appId: '1:896284499229:ios:6c9ce9e10719da74f855f4',
     messagingSenderId: '896284499229',
     projectId: 'ecommerce-a56d9',
     storageBucket: 'ecommerce-a56d9.appspot.com',
-    iosBundleId: 'com.example.eccommerce4.RunnerTests',
+    iosBundleId: 'com.example.eccommerce4',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAZl6M9K9GhKjqGxitATShlc9Ai3pPuWQY',
+    appId: '1:896284499229:web:554922edc6cbd84cf855f4',
+    messagingSenderId: '896284499229',
+    projectId: 'ecommerce-a56d9',
+    authDomain: 'ecommerce-a56d9.firebaseapp.com',
+    storageBucket: 'ecommerce-a56d9.appspot.com',
+  );
+
 }

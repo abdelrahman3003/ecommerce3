@@ -43,6 +43,7 @@ class HomePageControllerImp extends HomeController {
   @override
   void onInit() {
     super.onInit();
+
     getAllDataHome();
     FirebaseMessaging.instance.subscribeToTopic("users");
   }

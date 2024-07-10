@@ -19,6 +19,8 @@ requestpermisionnotification() async {
 fcmconfig() {
   FirebaseMessaging.onMessage.listen((message) {
     FlutterRingtonePlayer().playNotification();
+    print("================= notification");
+    print("================= ${message.notification}");
     Get.snackbar(message.notification!.title!, message.notification!.body!);
     refreshorderpage(message.data);
   });
