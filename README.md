@@ -25,6 +25,7 @@ An advanced e-commerce mobile application built with **Flutter** to provide a se
 
 ## 📸 Screenshots
 ![App Screenshot](assets/images/screenshot1.png)
+
 ---
 
 ## 🚀 How to Run the Project
