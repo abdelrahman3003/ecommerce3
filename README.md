@@ -26,11 +26,16 @@ An advanced e-commerce mobile application built with **Flutter** to provide a se
 ## 📸 Screenshots
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/91ec3e41-1138-4212-b2b9-f3ff1a1eff41" width="20%" />
-  <img src="https://github.com/user-attachments/assets/85d426b7-9ff0-45b2-abfd-66cdd478a079" width="20%" />
-  <img src="https://github.com/user-attachments/assets/48a1f7af-3dba-429c-bfda-b37d35208983" width="20%" />
-  <img src="https://github.com/user-attachments/assets/01d115a5-ac8f-4cd1-9adf-a534901d1399" width="20%" />
+  <img src="https://github.com/user-attachments/assets/91ec3e41-1138-4212-b2b9-f3ff1a1eff41" width="20%" height="20%" />
+  <img src="https://github.com/user-attachments/assets/85d426b7-9ff0-45b2-abfd-66cdd478a079" width="20%" height="20%" />
 </p>
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/01d115a5-ac8f-4cd1-9adf-a534901d1399" width="20%" height="20%" />
+  <img src="https://github.com/user-attachments/assets/48a1f7af-3dba-429c-bfda-b37d35208983" width="20%" height="20%" />
+</p>
+
+
 
 
 ---
