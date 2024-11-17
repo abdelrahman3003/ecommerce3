@@ -18,7 +18,6 @@ An advanced e-commerce mobile application built with **Flutter** to provide a se
 ## 🖥️ Technologies Used
 - **Framework**: Flutter (Dart)
 - **State Management**: Bloc / Cubit
-- **Backend**: PHP (RESTful API)
 - **Database**: Firestore / Hive
 - **APIs**: Dio & Retrofit for RESTful services
 
